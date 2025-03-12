@@ -1,5 +1,17 @@
+:root {
+  --primary-bg: #f0f0f0;
+  --secondary-bg: #e0e0e0;
+  --sidebar-bg: #f9f9f9;
+  --text-color: #333;
+  --base-padding: 10px;
+  --base-margin: 20px;
+  --base-font: sans-serif;
+  --list-item-border: #eee;
+}
+
+/* Base Styles */
 body {
-  font-family: sans-serif;
+  font-family: var(--base-font);
   margin: 0;
 }
 
@@ -14,39 +26,44 @@ body {
   flex: 1;
 }
 
+/* Navbar */
 .navbar {
-  background-color: #f0f0f0;
-  padding: 10px;
+  background-color: var(--primary-bg);
+  padding: var(--base-padding);
   display: flex;
   align-items: center;
 }
 
 .navbar-logo {
-  height: 90px;
-  margin-right: 20px;
+  height: 120px;
+  margin-right: var(--base-margin);
 }
 
 .navbar-title {
   display: flex;
   font-weight: bold;
-  align-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  color: #333
 }
 
+/* Footer */
 .footer {
-  background-color: #e0e0e0;
-  padding: 10px;
+  background-color: var(--secondary-bg);
+  padding: var(--base-padding);
   text-align: center;
 }
 
 .footer-link {
   text-decoration: none;
-  color: #333;
+  color: var(--text-color);
 }
 
+/* Sidebar */
 .sidebar {
-  min-width: 200px; /* Use min-width for flexibility */
-  background-color: #f9f9f9;
-  padding: 10px;
+  min-width: 220px;
+  background-color: var(--sidebar-bg);
+  padding: var(--base-padding);
 }
 
 .sidebar ul {
@@ -57,17 +74,82 @@ body {
 .sidebar-button {
   width: 100%;
   text-align: left;
-  padding: 8px;
+  padding: 10px;
   border: none;
+  margin-bottom: 5px;
   background-color: transparent;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
+.sidebar-button:hover,
+.sidebar-button:focus {
+  background-color: #e8e8e8;
+}
+
+/* Main Content */
 main {
   flex: 1;
-  padding: 20px;
+  padding: var(--base-margin);
   display: flex;
   flex-direction: column;
+}
+
+main ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+main li {
+  padding: 10px;
+  border-bottom: 1px solid var(--list-item-border);
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  transition: background-color 0.2s ease; 
+}
+
+main li:last-child {
+  border-bottom: none; 
+}
+
+main li:hover {
+  background-color: #f8f8f8; 
+}
+
+/* Delete Button */
+main button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; 
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+main button:hover {
+  background-color: #0056b3; 
+}
+
+/* Stock Status */
+.stock-low {
+  color: red;
+}
+
+.stock-high {
+  color: green;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+
+  main {
+    padding: var(--base-padding); 
+  }
+
+  .navbar-logo {
+    height: 60px; 
+  }
 }
