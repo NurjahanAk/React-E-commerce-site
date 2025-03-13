@@ -1,18 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar(changePage) {
   return (
     <aside className="sidebar">
       <ul>
         <li>
-          <button onClick={() => changePage ("home")} className="sidebar-button">
-            Home
-          </button>
+          <Link to="/">
+            <button className="sidebar-button">Dashboard</button>
+          </Link>
         </li>
         <li>
-          <button onClick={() => changePage ("about")} className="sidebar-button">
-            About
-          </button>
+          <Link to="/about">
+            <button className="sidebar-button">About</button>
+          </Link>
         </li>
       </ul>
     </aside>
