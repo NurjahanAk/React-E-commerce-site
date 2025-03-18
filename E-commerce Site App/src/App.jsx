@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
@@ -12,30 +16,59 @@ import productsData from "./data/products.json";
 import "./app.css";
 
 function App() {
-  const [data, setData] = useState(productsData.products);
+  // State to manage the list of products
+  const [data, setData] = useState(productsData);
 
+  // Function to remove an item from the list
   const removeItem = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    setData((prevData) => prevData.filter((item) => item.id !== id));
   };
 
   return (
     <Router>
       <div className="app-container">
+        {/* Navbar */}
         <Navbar />
+
         <div className="content-area">
+          {/* Sidebar */}
           <Sidebar />
+
+          {/* Main Content */}
           <main>
             <Routes>
-              <Route path="/" element={<DashboardPage />} />
-              <Route path="/item/:id" element={<ItemDetailsPage />} />
-              <Route path="about" element={<AboutPage />} />
-              <Route path="*" element={<NotFoundPage />} />
+              {/* Dashboard Page */}
+              <Route
+                path="/"
+                element={
+                  <DashboardPage
+                    products={data}
+                    setProducts={setData}
+                    removeItem={removeItem}
+                  />
+                }
+              />
+
+              {/* Item Details Page */}
+              <Route
+                path="/item/:id"
+                element={<ItemDetailsPage products={data} />}
+              />
+
+              {/* About Page */}
+              <Route path="/about" element={<AboutPage />} />
+
+              {/* Not Found Page */}
+              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
         </div>
+
+        {/* Footer */}
         <Footer />
       </div>
     </Router>
   );
 }
+
 export default App;

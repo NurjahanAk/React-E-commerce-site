@@ -1,11 +1,12 @@
 import React from "react";
-import logo from "../assets/images/logo.jpg";
+import { Link } from 'react-router-dom';
+import logo from "../assets/images/storelogo.jpg";
 
 function Navbar() {
   return (
     <nav className="navbar">
       <img src={logo} alt="logo" className="navbar-logo" />
-      <span className="navbar-tile"> Click-Shop </span>
+      <span className="navbar-tile"> Market Central App</span>
     </nav>
   );
 }

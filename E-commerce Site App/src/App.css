@@ -1,3 +1,4 @@
+/* Variables */
 :root {
   --primary-bg: #f0f0f0;
   --secondary-bg: #e0e0e0;
@@ -11,8 +12,15 @@
 
 /* Base Styles */
 body {
-  font-family: var(--base-font);
   margin: 0;
+  padding: 0;
+  font-family: var(--base-font);
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+}
+
+body::before {
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .app-container {
@@ -22,8 +30,9 @@ body {
 }
 
 .content-area {
-  display: flex;
-  flex: 1;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
 }
 
 /* Navbar */
@@ -44,7 +53,7 @@ body {
   font-weight: bold;
   align-items: center;
   font-size: 3em;
-  color: #333
+  color: #333;
 }
 
 /* Footer */
@@ -74,12 +83,14 @@ body {
 .sidebar-button {
   width: 100%;
   text-align: left;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   background-color: transparent;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  border-bottom: 1px solid #eee;
+  border-radius: 5px;
 }
 
 .sidebar-button:hover,
@@ -90,31 +101,34 @@ body {
 /* Main Content */
 main {
   flex: 1;
-  padding: var(--base-margin);
+  padding: 30px;
   display: flex;
   flex-direction: column;
 }
 
 main ul {
   list-style-type: none;
-  padding: 0;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  margin: 20px 0;
 }
 
 main li {
-  padding: 10px;
+  padding: 12px;
   border-bottom: 1px solid var(--list-item-border);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.2s ease; 
+  transition: background-color 0.2s ease;
 }
 
 main li:last-child {
-  border-bottom: none; 
+  border-bottom: none;
 }
 
 main li:hover {
-  background-color: #f8f8f8; 
+  background-color: #f8f8f8;
 }
 
 /* Delete Button */
@@ -122,14 +136,17 @@ main button {
   padding: 5px 10px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff; 
+  background-color: #007bff;
   color: white;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the button */
 }
 
 main button:hover {
-  background-color: #0056b3; 
+  background-color: #0056b3;
 }
 
 /* Stock Status */
@@ -141,15 +158,213 @@ main button:hover {
   color: green;
 }
 
+/* Form Styles */
+form {
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* List Item Styles */
+.list-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.list-item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.list-item-details {
+  flex: 1;
+}
+
+.stock-status {
+  margin-left: 10px;
+}
+
+.high-stock {
+  color: green;
+}
+
+.low-stock {
+  color: red;
+}
+
+.delete-button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #b02a37;
+}
+
+.update-button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.update-button:hover {
+  background-color: #0056b3;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
   .sidebar {
     display: none;
+  }
 
   main {
-    padding: var(--base-padding); 
+    padding: var(--base-padding);
   }
 
   .navbar-logo {
-    height: 60px; 
+    height: 60px;
   }
+
+  main {
+    padding: 40px;
+    line-height: 1.6;
+    border-radius: 10px;
+  }
+
+  main ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+
+  main li {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  main ul li strong {
+    display: block; 
+    margin-bottom: 5px; 
+}
+
+  .content-area {
+    grid-template-columns: 1fr;
+  }
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  grid-gap: 20px;
+  margin-top: 20px;
+}
+
+.team-member {
+    background-color: #f9f9f9; /* Add subtle background */
+    padding: 20px; /* Add padding */
+    margin-bottom: 20px; /* Add margin */
+    margin-top: 20px;
+    border-radius: 5px; /*add border radius*/
+}
+
+.team-member-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.team-member-title {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+li button:first-of-type {
+  background-color: #dc3545; /* Red for delete */
+  color: white;
+  
+}
+
+li button:last-of-type {
+  background-color: #007bff; /* Blue for update */
+  color: white;
+ 
+}
+
+li span {
+    flex-grow: 1;
+}
+
+
 }
