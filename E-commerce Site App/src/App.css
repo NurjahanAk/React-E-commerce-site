@@ -158,6 +158,18 @@ main button:hover {
   color: green;
 }
 
+.stock-status {
+  margin-left: 10px;
+}
+
+.high-stock {
+  color: green;
+}
+
+.low-stock {
+  color: red;
+}
+
 /* Form Styles */
 form {
   margin-bottom: 20px;
@@ -169,8 +181,7 @@ form label {
   font-weight: bold;
 }
 
-form input[type="text"],
-form input[type="number"],
+form input,
 form textarea {
   padding: 12px;
   margin-bottom: 15px;
@@ -206,6 +217,14 @@ form button:hover {
   object-fit: cover;
   margin-right: 10px;
   border-radius: 5px;
+}
+
+.item-details-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .list-item-details {
@@ -366,5 +385,51 @@ li span {
     flex-grow: 1;
 }
 
+.list-item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 5px;
+}
 
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Not Found Page */
+.not-found-page {
+  padding: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.not-found-page h1 {
+  font-size: 2.5rem;
+  color: #dc3545; /* Red color for the error message */
+  margin-bottom: 10px;
+}
+
+.not-found-page p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.back-to-home {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.back-to-home:hover {
+  background-color: #0056b3;
 }

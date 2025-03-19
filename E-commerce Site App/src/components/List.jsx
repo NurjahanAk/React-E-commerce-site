@@ -5,7 +5,7 @@ import ListItem from "./ListItem";
 
 function List({ items, removeItem, handleUpdate }) {
   return (
-    <ul style={{ listStyleType: "none", padding: 0 }}>
+    <ul className="list">
       {items.map((item) => (
         <ListItem
           key={item.id}

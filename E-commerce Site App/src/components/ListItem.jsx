@@ -3,10 +3,12 @@ import React from "react";
 function ListItem({ item, removeItem, handleUpdate }) {
   return (
     <li className="list-item">
-      {/* Display product image */}
-      {item.image && (
-        <img src={item.image} alt={item.title} className="list-item-image" />
-      )}
+      {/* Display product thumbnail */}
+      <img
+        src={item.thumbnail || "https://via.placeholder.com/150"} // Fallback image
+        alt={item.title}
+        className="list-item-image"
+      />
 
       {/* Display product details */}
       <div className="list-item-details">

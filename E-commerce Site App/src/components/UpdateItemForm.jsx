@@ -5,6 +5,7 @@ function UpdateItemForm({ item, setProducts, onClose }) {
   const [price, setPrice] = useState(item.price);
   const [description, setDescription] = useState(item.description);
   const [stock, setStock] = useState(item.stock);
+  const [image, setImage] = useState(item.image);
 
   // Sync state with the `item` prop when it changes
   useEffect(() => {
@@ -12,6 +13,7 @@ function UpdateItemForm({ item, setProducts, onClose }) {
     setPrice(item.price);
     setDescription(item.description);
     setStock(item.stock);
+    setImage(item.image);
   }, [item]);
 
   const handleSubmit = (e) => {
@@ -30,6 +32,7 @@ function UpdateItemForm({ item, setProducts, onClose }) {
       price: parseFloat(price), // Ensure price is a number
       description: description,
       stock: parseInt(stock, 10), // Ensure stock is an integer
+      image: image,
     };
 
     // Update the products list
@@ -81,6 +84,16 @@ function UpdateItemForm({ item, setProducts, onClose }) {
           placeholder="Stock"
           value={stock}
           onChange={(e) => setStock(e.target.value)}
+        />
+      </label>
+
+      <label>
+        Image URL:
+        <input
+          type="text"
+          placeholder="Image URL"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
         />
       </label>
 

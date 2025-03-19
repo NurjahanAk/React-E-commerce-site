@@ -5,7 +5,8 @@ function AboutPage() {
     <div style={{ padding: "20px" }}>
       <h1>About This Project</h1>
       <p>
-        This is a React E-commerce app built as part of the Ironhack curriculum (Mini - Project).
+        This is a React E-commerce app built as part of the Ironhack curriculum
+        (Mini-Project).
       </p>
       <h2>Team Members</h2>
       <ul>

@@ -5,6 +5,7 @@ function AddItemForm({ setProducts }) {
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [stock, setStock] = useState(0);
+  const [image, setImage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,6 +25,7 @@ function AddItemForm({ setProducts }) {
         price: parseFloat(price),
         description: description,
         stock: parseInt(stock, 10),
+        image: image,
       };
 
       return [...prevProducts, newItem];
@@ -33,6 +35,7 @@ function AddItemForm({ setProducts }) {
     setPrice("");
     setDescription("");
     setStock(0);
+    setImage("");
   };
 
   return (
