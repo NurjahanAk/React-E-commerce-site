@@ -1,18 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ListItem({ item, removeItem, handleUpdate }) {
   return (
     <li className="list-item">
-      {/* Display product thumbnail */}
-      <img
-        src={item.thumbnail || "https://via.placeholder.com/150"} // Fallback image
-        alt={item.title}
-        className="list-item-image"
-      />
+      {/* Link to the item details page */}
+      <Link to={`/item/${item.id}`} className="list-item-link">
+        <img
+          src={item.thumbnail || "https://via.placeholder.com/150"} // Fallback image
+          alt={item.title}
+          className="list-item-image"
+        />
+      </Link>
 
       {/* Display product details */}
       <div className="list-item-details">
-        <strong>{item.title}</strong> - ${item.price.toFixed(2)}
+        <Link to={`/item/${item.id}`} className="list-item-link">
+          <strong>{item.title}</strong>
+        </Link>
+        - ${item.price.toFixed(2)}
         <span
           className={`stock-status ${
             item.stock > 10 ? "high-stock" : "low-stock"

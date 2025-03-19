@@ -59,7 +59,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
 
               {/* Not Found Page */}
-              <Route path="*" element={<NotFoundPage/>} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </main>
         </div>

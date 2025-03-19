@@ -15,6 +15,11 @@ function AddItemForm({ setProducts }) {
       return;
     }
 
+    if (price <= 0 || stock < 0) {
+      alert("Price and stock must be positive values.");
+      return;
+    }
+
     setProducts((prevProducts) => {
       const existingIds = prevProducts.map((product) => product.id);
       const newID = existingIds.length > 0 ? Math.max(...existingIds) + 1 : 1;

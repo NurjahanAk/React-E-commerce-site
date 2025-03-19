@@ -41,19 +41,20 @@ body::before {
   padding: var(--base-padding);
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .navbar-logo {
-  height: 120px;
-  margin-right: var(--base-margin);
+  height: 80px; /* Adjust logo size */
+  margin-right: 20px; /* Add spacing between logo and title */
 }
 
 .navbar-title {
-  display: flex;
   font-weight: bold;
-  align-items: center;
-  font-size: 3em;
+  font-size: 3.5em; /* Adjust font size */
   color: #333;
+  text-align: center;
+  flex: 1; /* Center the title while keeping the logo on the left */
 }
 
 /* Footer */
@@ -282,8 +283,12 @@ form button:hover {
     padding: var(--base-padding);
   }
 
+  .navbar-title {
+    font-size: 2em; /* Reduce font size on smaller screens */
+  }
+
   .navbar-logo {
-    height: 60px;
+    height: 60px; /* Adjust logo size for smaller screens */
   }
 
   main {
@@ -432,4 +437,13 @@ li span {
 
 .back-to-home:hover {
   background-color: #0056b3;
+}
+
+.list-item-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.list-item-link:hover {
+  text-decoration: underline;
 }
